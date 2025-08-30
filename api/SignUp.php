@@ -9,7 +9,7 @@
     $password = $inData["password"];
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = $conn->prepare("SELECT ID FROM users where userName = ?");
+    $stmt = $conn->prepare("SELECT ID FROM Users WHERE Login = ?");
     $stmt->bind_param("s", $userName);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -23,7 +23,7 @@
 
     $stmt->close();
 
-    $stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, UserName, Password) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?)");
 
     $stmt->bind_param("ssss", $firstName, $lastName, $userName, $hashedPassword);
 
