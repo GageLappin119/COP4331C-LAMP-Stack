@@ -6,7 +6,7 @@
 	$userID = $inData["UserID"];
 	$ID = $inData["ID"];
 
-	$stmt = $conn->prepare("SELECT UserID, ID FROM Contacts WHERE UserID = ?")
+	$stmt = $conn->prepare("SELECT UserID, ID FROM Contacts WHERE UserID = ?");
 
 	$stmt->bind_param("i", $userID);
 	$stmt->execute();
