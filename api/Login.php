@@ -1,61 +1,46 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
 	require_once 'db.php';
 
+	// Gathers input data from frontend into an array
 	$inData = getRequestInfo();
 
+	// Extracts username/password from the input data
 	$login = $inData["userName"];
 	$password = $inData["password"];
 
-	$stmt = $conn->prepare("SELECT ID FROM Users WHERE Login = ?");
-	$stmt->bind_param("s", $login);
-	$stmt->execute();
-	$result = $stmt->get_result();
-
-	if ($result->num_rows == 0){
-		returnWithError("Username does not exist");
-		$stmt->close();
-		$conn->close();
-		exit();
-	}
-
-	$stmt->close();
-
+	// Prepares to search the db for a user that matches
 	$stmt = $conn->prepare("SELECT ID, FirstName, LastName, Password FROM Users WHERE Login = ?");
+
+	// Points the ? from previous statement to the $login variable
 	$stmt->bind_param("s", $login);
 	$stmt->execute();
-	$result = $stmt->get_result();
+	$result = $stmt->get_get_result();
 
-	if ($row = $result->fetch_assoc())
+	// Checks if a user was found, if not return with error
+	if( $row = $result->fetch_assoc()  )
 	{
-		if (password_verify($password, $row["Password"])){
+		// A user was found, compare the given password with the stored password
+		// if they match, login successful
+		if( password_verify($password, $row['Password']) )
+		{
 			$responseData = [
-				"id" => $row["ID"],
-				"FirstName" => $row["FirstName"],
-				"LastName" => $row["LastName"]
+				'id'        => $row['ID'],
+				'firstName' => $row['FirstName'],
+				'lastName'  => $row['LastName'],
+				'error'     => ''
 			];
-
-			sendResultInfoAsJson(json_encode($responseData));
+			sendResultInfoAsJson( json_encode($responseData) );
 		}
 		else
 		{
-			returnWithError("Incorrect password");
-			$stmt->close();
-			$conn->close();
-			exit();
+			returnWithError("Password incorrect.");
 		}
 	}
 	else
 	{
-		returnWithError("User not found");
-		$stmt->close();
-		$conn->close();
-		exit();
+		returnWithError("UserName incorrect.");
 	}
 
-	$stmt->close();	
+	$stmt->close();
 	$conn->close();
 ?>
