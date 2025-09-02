@@ -10,7 +10,6 @@
 	$emailAddress = $inData["Email"];
 
 	$stmt = $conn->prepare("SELECT UserID FROM Contacts WHERE UserID = ? AND FirstName = ? AND LastName= ?");
-
  
 	$stmt->bind_param("iss", $userID, $firstName, $lastName);
 
