@@ -1,15 +1,18 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
 	require_once 'db.php';
-
+	
 	$inData = getRequestInfo();
+	$firstName = $inData["FirstName"];
+	$lastName = $inData["LastName"];
+	$phoneNumber = $inData["PhoneNumber"];
+	$emailAddress = $inData["EmailAddress"];
+	$contactID = $inData["ContactID"];
 
-
-	if (isset($stmt)) {
-		$stmt->close();
-	}
+	$stmt = $conn->prepare("INSERT into Contacts (FirstName, LastName, PhoneNumber, EmailAddress, ContactID) VALUES (?,?,?,?,?)");
+	$stmt -> bind_param("ssssi" , $firstName, $lastName, $phoneNumber, $emailAddress, $contactID);
+	$stmt->execute();
+	$stmt->close();
 	$conn->close();
+	returnWithError("");
+
 ?>
