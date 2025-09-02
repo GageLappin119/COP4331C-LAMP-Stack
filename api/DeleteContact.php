@@ -1,15 +1,14 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
 	require_once 'db.php';
-
+	
 	$inData = getRequestInfo();
 
+	$contactID = $inData["ContactID"];
 
-	if (isset($stmt)) {
-		$stmt->close();
-	}
+	$stmt = $conn->prepare("DELETE FROM Contacts WHERE ID = ?");
+	$stmt->bind_param("i", $contactID);
+	$stmt->execute();
+	$stmt->close();
 	$conn->close();
+	returnWithError("");
 ?>
