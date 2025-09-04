@@ -7,7 +7,7 @@ let lastName = "";
 
 function signUp()
 {
-  let firstName = document.getElementById("FirstName").value;
+  	let firstName = document.getElementById("FirstName").value;
 	let lastName = document.getElementById("LastName").value;
 
 	let username = document.getElementById("username").value;
@@ -72,7 +72,7 @@ function signUp()
 
 function doLogin()
 {
-  userId = 0;
+  	userId = 0;
 	firstName = "";
 	lastName = "";
 	let login = document.getElementById("LoginName").value;
@@ -162,7 +162,7 @@ function readCookie()
 
 function doLogout()
 {
-  userId = 0;
+  	userId = 0;
 	firstName = "";
 	lastName = "";
 	document.cookie = "firstName = ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
@@ -172,7 +172,7 @@ function doLogout()
 //TODO
 function addContact()
 {
-  let firstName = document.getElementById("contactFirstName").value.trim();
+  	let firstName = document.getElementById("contactFirstName").value.trim();
 	let lastName = document.getElementById("contactLastName").value.trim();
 	let phone = document.getElementById("contactPhone").value.trim();
 	let email = document.getElementById("contactEmail").value.trim();
