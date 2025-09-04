@@ -14,7 +14,7 @@
 	// Points the ? from previous statement to the $login variable
 	$stmt->bind_param("s", $login);
 	$stmt->execute();
-	$result = $stmt->get_get_result();
+	$result = $stmt->get_result();
 
 	// Checks if a user was found, if not return with error
 	if( $row = $result->fetch_assoc()  )
