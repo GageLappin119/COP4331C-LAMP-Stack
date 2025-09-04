@@ -22,6 +22,7 @@
 
     // If a row was found that means the username already exists
     if ($result->num_rows > 0){
+        http_response_code(409);
         returnWithError("Username is already taken.");
         $stmt->close();
         $conn->close();
@@ -44,10 +45,12 @@
     // If a row was updated that means insert was successful
     if ($stmt->affected_rows > 0)
     {
+        http_response_code(201);
         returnWithError("");
     }
     else
     {
+        http_response_code(500);
         returnWithError("Registration failed.");
     }
 
