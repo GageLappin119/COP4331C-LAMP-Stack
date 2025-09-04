@@ -80,7 +80,7 @@ function doLogin()
 
 	document.getElementById("LoginResult").innerHTML = "";
 
-	if(!login || password == 0){
+	if(!login || password.length == 0){
 		document.getElementById("LoginResult").innerHTML = "Please enter username and password.";
 		return;
 	}
