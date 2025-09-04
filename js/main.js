@@ -79,6 +79,11 @@ function doLogin()
 	let password = document.getElementById("LoginPassword").value;
 
 	document.getElementById("LoginResult").innerHTML = "";
+
+	if(!login || password == 0){
+		document.getElementById("LoginResult").innerHTML = "Please enter username and password.";
+		return;
+	}
 	
 	let tmp = {userName:login, password:password};
 	let jsonPayload = JSON.stringify(tmp);
@@ -92,9 +97,9 @@ function doLogin()
 		xhr.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200){
 				let jsonObject = JSON.parse(xhr.responseText);
-        if(jsonObject.error){
-          document.getElementById("LoginResult").innerHTML = jsonObject.error;
-          return;
+        	if(jsonObject.error){
+         		document.getElementById("LoginResult").innerHTML = jsonObject.error;
+          		return;
         }
       
 				userId = jsonObject.id;
