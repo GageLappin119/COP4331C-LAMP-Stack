@@ -34,7 +34,7 @@
 
 	if($stmt->affected_rows > 0)
 	{
-		returnWithError("Successfully added a contact");
+		returnWithSuccess("Successfully added a contact");
 	}
 	else
 	{
