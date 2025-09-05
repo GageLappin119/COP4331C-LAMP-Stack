@@ -44,7 +44,7 @@ function signUp()
 					let jsonObject = JSON.parse(xhr.responseText);
 
 					if (jsonObject.error){
-						document.getElementById("signupResult").innerHtml = jsonObject.error;
+						document.getElementById("signupResult").innerHTML = jsonObject.error;
 					}
 					else
 					{
@@ -114,7 +114,7 @@ function doLogin()
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset = UTF-8");
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try{
 		xhr.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200){
