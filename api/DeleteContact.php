@@ -29,7 +29,7 @@
 
 	if($stmt->affected_rows > 0)
 	{
-		returnWithError("Contact successfully deleted");
+		returnWithSuccess("Contact successfully deleted");
 	}
 	else
 	{
