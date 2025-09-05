@@ -34,7 +34,7 @@
 
 	if($stmt->affected_rows > 0)
 	{
-		returnWithError("Successfully edited Contact");
+		returnWithSuccess("Successfully edited Contact");
 	}
 	else
 	{
