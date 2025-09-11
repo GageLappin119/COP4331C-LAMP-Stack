@@ -1,4 +1,4 @@
-const urlBase = '';
+const urlBase = '/api';
 const extension = 'php';
 
 let userID = 0;
@@ -38,22 +38,31 @@ function signUp() {
 
     try {
         xhr.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    let jsonObject = JSON.parse(xhr.responseText);
+            if (this.readyState != 4) return; 
 
-                    if (jsonObject.error) {
-                        document.getElementById("signupResult").innerHTML = jsonObject.error;
+            if (this.status === 200 || this.status === 201) {
+                try {
+                    let jsonObject = JSON.parse(this.responseText);
+
+                    if (jsonObject.error && jsonObject.error !== "") {
+                            document.getElementById("signupResult").innerHTML = jsonObject.error;
                     } else {
                         document.getElementById("signupResult").innerHTML = "Sign up successful! Redirecting to login...";
                         redirectToLogin();
                     }
-                } else {
-                    document.getElementById("signupResult").innerHTML = "An error occurred: " + this.status;
+                    } catch (e) {
+                        document.getElementById("signupResult").innerHTML = "Invalid response from server.";
+                        }
+                } 
+                else if (this.status === 409) {
+                document.getElementById("signupResult").innerHTML = "Username already exists.";
                 }
-            }
-        };
+                else {
+                    document.getElementById("signupResult").innerHTML = "An ERROR occurred: " + this.status;
+                }
+            };
 
+        
         xhr.send(jsonPayload);
     } catch (err) {
         document.getElementById("signupResult").innerHTML = err.message;
@@ -62,7 +71,7 @@ function signUp() {
 
 function redirectToLogin() {
     setTimeout(function() {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }, 2000);
 }
 
