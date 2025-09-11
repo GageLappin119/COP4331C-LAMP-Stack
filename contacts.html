@@ -1,57 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Contacts Manager</title>
     <script type="text/javascript" src="js/main.js"></script>
-    <link href="css/styles.css" rel="stylesheet">	
 </head>
-<body >
-    <div class="container">
-        <h2>Contacts Manager</h2>
-        <p id="userName"></p>
-        <button onclick="doLogout()">Logout</button>
 
-        <hr>
+<body>
+    <!--
+    Add logout button that goes back to index.html-->
+    <h1 id="title">Logged in</h1>
 
-        <!-- Add/Edit Contact -->
-        <h3>Add / Edit Contact</h3>
-        <input type="hidden" id="contactID">
-        <input type="text" id="contactFirstName" placeholder="First Name">
-        <input type="text" id="contactLastName" placeholder="Last Name">
-        <input type="text" id="contactPhone" placeholder="Phone">
-        <input type="email" id="contactEmail" placeholder="Email">
-        <button onclick="addContact()">Add Contact</button>
-        <button onclick="updateContact()">Update Contact</button>
-        <p id="AddContactResult"></p>
-        <p id="EditContactResult"></p>
-
-        <hr>
-
-        <!-- Delete Contact -->
-        <h3>Delete Contact</h3>
-        <input type="text" id="contactID" placeholder="Contact ID">
-        <button onclick="deleteContact()">Delete Contact</button>
-        <p id="DeleteContactResult"></p>
-
-        <hr>
-
-        <!-- Search Contacts -->
-        <h3>Search Contacts</h3>
-        <input type="text" id="search" placeholder="Search by name or email">
-        <button onclick="searchContacts()">Search</button>
-        <p id="SearchContactResult"></p>
-
-        <hr>
-
-        <!-- Display Contacts -->
-        <h3>Your Contacts</h3>
-        <div id="contactsList">
-            <!-- Contacts will be displayed here by displayContacts() -->
-        </div>
+    <div id="loginDiv">
+        <span id="inner-title">PLEASE LOG IN</span>
+        <input type="text" id="loginName" placeholder="Username" /><br />
+        <input type="password" id="loginPassword" placeholder="Password" /><br />
+        <button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
+        <span id="loginResult"></span>
     </div>
 
-    <!-- Include JS -->
-    <script src="js/main.js"></script>
 </body>
+
 </html>
