@@ -319,7 +319,74 @@ function updateContact() {
 }
 
 function updateContactList() {
-    // redisplays the contact list upon add, delete, update, search etc...
+    let searchInput = document.getElementById("search");
+	let search = "";
+	
+	if(searchInput) {
+		search = searchInput.value.trim();
+	}
+	else {
+		search = "";
+	}
+
+	let tmp = {
+		UserID: userID,
+		search: search
+	}
+
+	let jsonPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/SearchContacts.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try {
+		xhr.onreadystatechange = function() {
+			if (this.readyState != 4) return;
+			
+			let searchResult = document.getElementById("SearchContactResult");
+			
+			if (this.status == 200) {
+				let res = JSON.parse(xhr.responseText);
+
+				if(res.error) {
+					if (searchResult) {
+						searchResult.innerHTML = res.error;
+					}
+					displayContacts([]);
+					contactList = [];
+					return;	
+				}
+				
+				if(Array.isArray(res.results)) {
+					contactList = res.results;
+				}
+				else {
+					contactList = [];
+				}
+                
+				displayContacts(contactList);
+				if (searchResult) {
+					searchResult.innerHTML = "Contact list updated";
+				}
+			}
+			else{
+				if (searchResult){
+					searchResult.innerHTML = "An error occurred: " + this.status;
+				}
+			}
+		};
+		
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		let searchResult = document.getElementById("SearchContactResult");
+		if (searchResult) {
+            searchResult.innerHTML = err.message;
+        }
+	}
 }
 
 function displayContacts(contacts) {
