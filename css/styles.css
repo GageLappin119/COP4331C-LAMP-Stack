@@ -3,8 +3,8 @@ body {
   background-color: #5496d8; /* light blue */
   color: #ecf0f1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;      /* stack elements vertically */
+  align-items: center;         /* horizontal centering */
   min-height: 100vh;
   margin: 0;
 }
@@ -15,37 +15,54 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   width: 350px;
+  margin-top: 225px;
 }
 
+/* default header*/
 h2 {
   text-align: center;
   color: #a0c1f3; /* blue highlight */
 }
 
+/* home page header*/
+h1 {
+  font-size: 60px;        
+  color: darkblue;        
+  text-align: center;     
+  margin-top: 150px;       
+}
 form {
   margin-top: 15px;
 }
 /* center username and password inputs */
 .centered-inputs {
-  display:flex;
-  flex-direction: column; 
-  align-items: center;    
-  gap: 10px;              
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers children horizontally */
+  gap: 10px;
+  width: 100%;           /* make container full width of .container */
 }
-.centered-inputs input{
-  width: 100%;
-  text-align: left;
+.centered-inputs input{  
+   width: 325px;          /* fixed width */
   padding: 10px;
-  margin: 8px 0;
   border: none;
   border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center; /* center the buttons horizontally */
+  gap: 100px;               /* space between buttons */
+  margin-top: 200px;        /* space below h1 */
 }
 
 /* login button */
 button {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
   border: 3px solid #000000;
   border-radius: 8px;
   background-color: #db8d34;
@@ -53,6 +70,15 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+/* square buttons on home page */
+button.square {
+  width: 200px;     
+  height: 120px;    
+  font-size: 30px;  
+  border-radius: 20px; 
+}
+
 button:hover {
   background-color: #2980b9;
 }
