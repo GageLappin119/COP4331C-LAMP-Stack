@@ -116,7 +116,8 @@ button.secondary:hover {
 
 .main-content {
     display: flex;
-    gap: 20px; 
+    gap: 20px;
+    width: 100%; 
 }
 
 .form-container {
@@ -146,4 +147,5 @@ button.secondary:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
