@@ -6,41 +6,47 @@
     <script src="js/main.js" defer></script>
     <link href="css/styles.css" rel="stylesheet">
 </head>
+
 <body onload="checkLogin()">
   <div class="container">
-    <h2 id="userName">Logged in as </h2>
-    <button onclick="doLogout()">Logout</button>
+    <div class="header-bar">
+        <h2 id="userName">Logged in as...</h2>
+        <button onclick="doLogout()">Logout</button>
+    </div>
 
     <hr>
 
-    <h3>Add / Edit Contact</h3>
-    <div id="AddContactResult" style="color: yellow;"></div>
+    <div class="main-content">
+        <div class="form-container">
+            <h3 id="formTitle">Add a New Contact</h3>
 
-    <div class="centered-inputs">
-        <input type="text" id="contactFirstName" placeholder="First Name">
-        <input type="text" id="contactLastName" placeholder="Last Name">
-        <input type="text" id="contactPhone" placeholder="Phone">
-        <input type="text" id="contactEmail" placeholder="Email">
-    </div>
-    
-    <div class="centered-inputs">
-        <button onclick="addContact()">Add Contact</button>
-        <button onclick="updateContact()">Edit Contact</button>
-        <button onclick="deleteContact()">Delete Contact</button>
-    </div>
-    
-    <hr>
+            <input type="hidden" id="contactIdHidden">
 
-    <h3>Search Contacts</h3>
-    <div class="centered-inputs">
-        <input type="text" id="search" placeholder="Search by name">
-        <button onclick="searchContacts()">Search</button>
+            <input type="text" id="contactFirstName" placeholder="First Name">
+            <input type="text" id="contactLastName" placeholder="Last Name">
+            <input type="text" id="contactPhone" placeholder="Phone Number">
+            <input type="text" id="contactEmail" placeholder="Email Address">
+            
+            <button id="addEditButton" onclick="addContact()">Add Contact</button>
+
+            <p id="contactFormResult" class="result-message"></p>
+        </div>
+
+        <div class="list-container">
+            <h3>Your Contacts</h3>
+            <div class="search-section">
+
+                <input type="text" id="search" placeholder="Search by name..." onkeyup="searchContacts()">
+            </div>
+
+            <p id="searchResult" class="result-message"></p>
+
+            <hr>
+
+            <div id="contactsList" class="contacts-list">
+            </div>
+        </div>
     </div>
-   
-    <div id="SearchContactResult" style="color: yellow;"></div>
-    <hr>
-    <h3>Contacts List</h3>
-    <div id="contactsList" class="contacts-list"></div>
   </div>
 </body>
 </html>

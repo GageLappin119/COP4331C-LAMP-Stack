@@ -113,3 +113,37 @@ button.secondary:hover {
 .link a:hover {
   text-decoration: underline;
 }
+
+.main-content {
+    display: flex;
+    gap: 20px; 
+}
+
+.form-container {
+    flex: 1; 
+}
+
+.list-container {
+    flex: 2; 
+}
+
+.contact-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-message {
+    color: #007bff; 
+    min-height: 1.2em; 
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

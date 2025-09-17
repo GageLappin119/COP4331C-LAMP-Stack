@@ -251,12 +251,10 @@ function addContact() {
     }
 }
 
-function deleteContact() {
-    let ID = document.getElementById("contactID").value.trim();
-
+function deleteContact(contactId) {
     let tmp = {
         userID: userID,
-        ID: ID
+        ID: contactId
     };
 
     let jsonPayload = JSON.stringify(tmp);
@@ -412,7 +410,70 @@ function updateContactList() {
 }
 
 function displayContacts(contacts) {
-    // creates a html display for each contact passed through
+    const contactListContainer = document.getElementById("contactsList");
+
+    contactListContainer.innerHTML = "";
+
+    if (!contacts || contacts.length === 0) {
+        contactListContainer.innerHTML = "<p>No contacts found.</p>";
+        return; 
+    }
+
+    contacts.forEach(contact => {
+        const contactCardHTML = `
+            <div class="contact-card" id="contact-${contact.ID}">
+                <h3>${contact.FirstName} ${contact.LastName}</h3>
+                <p><strong>Phone:</strong> ${contact.Phone}</p>
+                <p><strong>Email:</strong> ${contact.Email}</p>
+                <div class="actions">
+                    <button onclick="prepareEdit(${contact.ID})">Edit</button>
+                    <button onclick="deleteContact(${contact.ID})">Delete</button>
+                </div>
+            </div>
+        `;
+
+        contactListContainer.innerHTML += contactCardHTML;
+    });
+}
+
+function prepareEdit(contactId) {
+    const contactToEdit = contactList.find(contact => contact.ID === contactId);
+
+    if (!contactToEdit) {
+        console.error("Could not find contact to edit with ID:", contactId);
+        return;
+    }
+
+    document.getElementById("contactFirstName").value = contactToEdit.FirstName;
+    document.getElementById("contactLastName").value = contactToEdit.LastName;
+    document.getElementById("contactPhone").value = contactToEdit.Phone;
+    document.getElementById("contactEmail").value = contactToEdit.Email;
+    
+    document.getElementById("contactIdHidden").value = contactToEdit.ID;
+
+    document.getElementById("formTitle").innerText = "Edit Contact";
+    document.getElementById("addEditButton").innerText = "Save Changes";
+    document.getElementById("addEditButton").setAttribute("onclick", "updateContact()");
+}
+
+function resetContactForm() {
+    document.getElementById("contactFirstName").value = "";
+    document.getElementById("contactLastName").value = "";
+    document.getElementById("contactPhone").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactIdHidden").value = "";
+
+    document.getElementById("formTitle").innerText = "Add New Contact";
+    document.getElementById("addEditButton").innerText = "Add Contact";
+    document.getElementById("addEditButton").setAttribute("onclick", "addContact()");
+    document.getElementById("AddContactResult").innerHTML = "";
+}
+
+function deleteContactOnClick(contactId) {
+    if(!confirm("Are you sure you want to delete this contact?")) {
+        return;
+    }
+    deleteContact(contactId);
 }
 
 function searchContacts() {
