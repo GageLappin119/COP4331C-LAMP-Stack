@@ -240,13 +240,13 @@ function addContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("AddContactResult").innerHTML = "An error occured: " + this.status;
+                    document.getElementById("AddContactResult").innerHTML = "Error: " + jsonObject;
                 } else {
                     document.getElementById("AddContactResult").innerHTML = "Successfully added a new contact";
                     searchContacts();
                 }
             } else {
-                document.getElementById("AddContactResult").innerHTML = "An error occurred: " + this.status;
+                document.getElementById("AddContactResult").innerHTML = ": " + this.status;
             }
         }
         xhr.send(jsonPayload);
@@ -329,7 +329,7 @@ function updateContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("searchResult").innerHTML = "An error occured: " + this.status;
+                    document.getElementById("searchResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
                     document.getElementById("searchResult").innerHTML = "Successfully edited contact";
 
