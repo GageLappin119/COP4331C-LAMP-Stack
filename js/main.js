@@ -252,6 +252,8 @@ function addContact() {
 }
 
 function deleteContact(contactId) {
+    console.log("Preparing to delete. UserID:", userID, "ContactID:", contactId);
+
     let tmp = {
         userID: userID,
         ID: contactId
