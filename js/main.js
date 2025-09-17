@@ -271,7 +271,7 @@ function deleteContact(contactId) {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("searchResult").innerHTML = "An error occured: " + this.status;
+                    document.getElementById("searchResult").innerHTML = "API Error: " + jsonObject.error;
                 } else {
                     document.getElementById("searchResult").innerHTML = "Successfully deleted a contact";
                     searchContacts();
@@ -323,18 +323,18 @@ function updateContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("EditContactResult").innerHTML = "An error occured: " + this.status;
+                    document.getElementById("searchResult").innerHTML = "An error occured: " + this.status;
                 } else {
-                    document.getElementById("EditContactResult").innerHTML = "Successfully added a new contact";
+                    document.getElementById("searchResult").innerHTML = "Successfully added a new contact";
                     searchContacts();
                 }
             } else {
-                document.getElementById("EditContactResult").innerHTML = "An error occurred: " + this.status;
+                document.getElementById("searchResult").innerHTML = "An error occurred: " + this.status;
             }
         }
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("EditContactResult").innerHTML = err.message;
+        document.getElementById("searchResult").innerHTML = err.message;
     }
 }
 

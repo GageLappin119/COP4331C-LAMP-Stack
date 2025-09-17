@@ -7,7 +7,7 @@
 	$ID = $inData["ID"];
 
 	$stmt = $conn->prepare("SELECT ID FROM Contacts WHERE ID = ? AND UserID = ?");
-	$stmt->bind_param("ii", $ID, $userID); // Bind both IDs
+	$stmt->bind_param("ii", $ID, $userID); 
 	$stmt->execute();
 	$result = $stmt->get_result();
 
