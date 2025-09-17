@@ -118,13 +118,26 @@ button.secondary:hover {
 
 .contact-card {
   background: #1abc9c;
-  margin: 0; 
-  padding: 8px;
+  padding: 12px;
   border-radius: 8px;
   color: black;
   display: flex;
-  justify-content: space-between;
-  align-items: center; 
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+
+.contact-actions button {
+  width: 45%; 
+  margin-top: 5px; 
+  padding: 8px; 
+  font-size: 14px;
 }
 
 .result-message {
@@ -134,4 +147,14 @@ button.secondary:hover {
 
 .header-bar, .main-content {
     width: 100%;
+}
+
+.form-buttons-container button {
+  width: auto; 
+  flex-grow: 1; 
+  max-width: 200px; 
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+  width: 100%;
 }

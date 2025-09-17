@@ -432,12 +432,12 @@ function displayContacts(contacts) {
     contacts.forEach(contact => {
         allContactsHTML += `
             <div class="contact-card">
-                <div>
+                <div class="contact-info">
                     <strong>${contact.FirstName} ${contact.LastName}</strong><br>
                     <small>Phone: ${contact.Phone}</small><br>
                     <small>Email: ${contact.Email}</small>
                 </div>
-                <div>
+                <div class="contact-actions">
                     <button class="secondary" onclick="prepareEdit(${contact.ID})">Edit</button>
                     <button class="secondary" onclick="deleteContactOnClick(${contact.ID})">Delete</button>
                 </div>
