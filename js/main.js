@@ -259,13 +259,11 @@ function deleteContact(contactId) {
     console.log("Preparing to delete. UserID:", userID, "ContactID:", contactId);
 
     let tmp = {
-        userID: parseInt(userID, 10),
+        UserID: parseInt(userID, 10),
         ID: parseInt(contactId, 10)
     };
 
     let jsonPayload = JSON.stringify(tmp);
-
-    console.log("DeleteContact Payload:", jsonPayload);
 
     let url = urlBase + '/DeleteContact.' + extension;
 
