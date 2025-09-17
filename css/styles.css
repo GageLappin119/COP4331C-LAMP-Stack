@@ -3,8 +3,6 @@ body {
   background-color: #5496d8; /* light blue */
   color: #ecf0f1;
   display: flex;
-  flex-direction: column;      /* stack elements vertically */
-  align-items: center;         /* horizontal centering */
   min-height: 100vh;
   margin: 0;
 }
@@ -14,13 +12,9 @@ body {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  width: 25%;
-  max-width: 1000px;
-  min-width: 350px;
-  margin-top: 100px;
-
-  display: flex;
-  flex-direction: column;
+  width: 90%; 
+  max-width: 1200px; 
+  margin: 50px auto; 
 }
 
 /* default header*/
@@ -159,4 +153,10 @@ button.secondary:hover {
 .button-wrapper button {
     width: 50%; 
     max-width: 250px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 }
