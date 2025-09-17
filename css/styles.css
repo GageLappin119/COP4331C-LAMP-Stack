@@ -98,16 +98,12 @@ button.secondary:hover {
 }
 
 .contacts-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px; 
   margin-top: 20px;
 }
 
-.contact-card {
-  background: #1abc9c; /* teal accent */
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 8px;
-  color: black;
-}
 .link a{
   color:#ad5a34;
   font-weight: bold;
@@ -119,27 +115,15 @@ button.secondary:hover {
   text-decoration: underline;
 }
 
-.main-content {
-    display: flex;
-    gap: 20px; 
-}
-
-.form-container {
-    flex: 1; 
-}
-
-.list-container {
-    flex: 2; 
-}
-
 .contact-card {
-  background: #1abc9c; 
-  margin: 5px 0;
+  background: #1abc9c;
+  margin: 0; 
   padding: 8px;
   border-radius: 8px;
   color: black;
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
 
 .result-message {
