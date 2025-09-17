@@ -32,13 +32,13 @@
 
 	$stmt->execute();
 
-	if($stmt->affected_rows > 0)
+	if($stmt->error)
 	{
-		returnWithSuccess("Successfully edited Contact");
+		returnWithSuccess($stmt->error);
 	}
 	else
 	{
-		returnWithError("Failed to edit contact");
+		returnWithError("");
 	}
 	
 	$stmt->close();
