@@ -327,7 +327,10 @@ function updateContact() {
                 if (jsonObject.error) {
                     document.getElementById("searchResult").innerHTML = "An error occured: " + this.status;
                 } else {
-                    document.getElementById("searchResult").innerHTML = "Successfully added a new contact";
+                    document.getElementById("searchResult").innerHTML = "Successfully edited contact";
+
+                    resetContactForm();
+
                     searchContacts();
                 }
             } else {
