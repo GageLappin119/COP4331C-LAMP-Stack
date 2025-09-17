@@ -9,49 +9,47 @@
 
 <body onload="checkLogin()">
   <div class="container">
-    <div class=""page-wrapper"></div>
-        <div class="header-bar">
+    <div class="header-bar">
         <h2 id="userName">Logged in as...</h2>
         <button onclick="doLogout()">Logout</button>
+    </div>
+
+    <hr>
+    
+    <div class="main-content">
+        <div class="form-container">
+            <h3 id="formTitle">Add a New Contact</h3>
+
+            <input type="hidden" id="contactIdHidden">
+
+            <div class="centered-inputs">
+                <input type="text" id="contactFirstName" placeholder="First Name">
+                <input type="text" id="contactLastName" placeholder="Last Name">
+                <input type="text" id="contactPhone" placeholder="Phone Number">
+                <input type="text" id="contactEmail" placeholder="Email Address">
+            </div>
+            
+            <div id="AddContactResult" class="result-message"></div>
+
+            <button id="addEditButton" onclick="addContact()">Add Contact</button>
+
+            <p id="contactFormResult" class="result-message"></p>
         </div>
 
-        <hr>
-
-        <div class="main-content">
-            <div class="form-container">
-                <h3 id="formTitle">Add a New Contact</h3>
-
-                <input type="hidden" id="contactIdHidden">
-
-                <div class="centered-inputs">
-                    <input type="text" id="contactFirstName" placeholder="First Name">
-                    <input type="text" id="contactLastName" placeholder="Last Name">
-                    <input type="text" id="contactPhone" placeholder="Phone Number">
-                    <input type="text" id="contactEmail" placeholder="Email Address">
-                </div>
-                
-                <div id="AddContactResult" class="result-message"></div>
-
-                <button id="addEditButton" onclick="addContact()">Add Contact</button>
-
-                <p id="contactFormResult" class="result-message"></p>
+        <div class="list-container">
+            <h3>Your Contacts</h3>
+            <div class="centered-inputs">
+                <input type="text" id="search" placeholder="Search by name..." onkeyup="searchContacts()">
             </div>
 
-            <div class="list-container">
-                <h3>Your Contacts</h3>
-                <div class="centered-inputs">
-                    <input type="text" id="search" placeholder="Search by name..." onkeyup="searchContacts()">
-                </div>
+            <p id="searchResult" class="result-message"></p>
 
-                <p id="searchResult" class="result-message"></p>
+            <hr>
 
-                <hr>
-
-                <div id="contactsList" class="contacts-list">
-                </div>
+            <div id="contactsList" class="contacts-list">
             </div>
         </div>
-    </div> 
+    </div>
   </div>
 </body>
 </html>
