@@ -271,23 +271,23 @@ function deleteContact(contactId) {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("DeleteContactResult").innerHTML = "An error occured: " + this.status;
+                    document.getElementById("searchResult").innerHTML = "An error occured: " + this.status;
                 } else {
-                    document.getElementById("DeleteContactResult").innerHTML = "Successfully deleted a contact";
+                    document.getElementById("searchResult").innerHTML = "Successfully deleted a contact";
                     searchContacts();
                 }
             } else {
-                document.getElementById("DeleteContactResult").innerHTML = "An error occurred: " + this.status;
+                document.getElementById("searchResult").innerHTML = "An error occurred: " + this.status;
             }
         }
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("DeleteContactResult").innerHTML = err.message;
+        document.getElementById("searchResult").innerHTML = err.message;
     }
 }
 
 function updateContact() {
-    let contactID = document.getElementById("contactID").value.trim();
+    let contactID = document.getElementById("contactIdHidden").value.trim();
     let firstName = document.getElementById("contactFirstName").value.trim();
     let lastName = document.getElementById("contactLastName").value.trim();
     let phone = document.getElementById("contactPhone").value.trim();
