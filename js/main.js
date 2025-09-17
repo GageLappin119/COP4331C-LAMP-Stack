@@ -147,9 +147,13 @@ function saveUserInfo(userInfo) {
 
     localStorage.setItem("userInfo", userString);
 
+    console.log("Value in localStorage is now:", localStorage.getItem("userInfo"));
+
     userID = userInfo.id;
     firstName = userInfo.firstName;
     lastName = userInfo.lastName;
+
+    console.log("Global userID is now set to:", userID);
 }
 
 // function saveCookie()
