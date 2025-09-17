@@ -154,9 +154,3 @@ button.secondary:hover {
     width: 50%; 
     max-width: 250px;
 }
-
-.main-content {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
