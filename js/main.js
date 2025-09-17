@@ -416,24 +416,27 @@ function displayContacts(contacts) {
 
     if (!contacts || contacts.length === 0) {
         contactListContainer.innerHTML = "<p>No contacts found.</p>";
-        return; 
+        return;
     }
 
+    let allContactsHTML = "";
     contacts.forEach(contact => {
-        const contactCardHTML = `
-            <div class="contact-card" id="contact-${contact.ID}">
-                <h3>${contact.FirstName} ${contact.LastName}</h3>
-                <p><strong>Phone:</strong> ${contact.Phone}</p>
-                <p><strong>Email:</strong> ${contact.Email}</p>
-                <div class="actions">
-                    <button onclick="prepareEdit(${contact.ID})">Edit</button>
-                    <button onclick="deleteContact(${contact.ID})">Delete</button>
+        allContactsHTML += `
+            <div class="contact-card">
+                <div>
+                    <strong>${contact.FirstName} ${contact.LastName}</strong><br>
+                    <small>Phone: ${contact.Phone}</small><br>
+                    <small>Email: ${contact.Email}</small>
+                </div>
+                <div>
+                    <button class="secondary" onclick="prepareEdit(${contact.ID})">Edit</button>
+                    <button class="secondary" onclick="deleteContactOnClick(${contact.ID})">Delete</button>
                 </div>
             </div>
         `;
-
-        contactListContainer.innerHTML += contactCardHTML;
     });
+
+    contactListContainer.innerHTML = allContactsHTML;
 }
 
 function prepareEdit(contactId) {
