@@ -255,8 +255,8 @@ function deleteContact(contactId) {
     console.log("Preparing to delete. UserID:", userID, "ContactID:", contactId);
 
     let tmp = {
-        userID: userID,
-        ID: contactId
+        userID: parseInt(userID, 10),
+        ID: parseInt(contactId, 10)
     };
 
     let jsonPayload = JSON.stringify(tmp);
