@@ -265,6 +265,8 @@ function deleteContact(contactId) {
 
     let jsonPayload = JSON.stringify(tmp);
 
+    console.log("DeleteContact Payload:", jsonPayload);
+
     let url = urlBase + '/DeleteContact.' + extension;
 
     let xhr = new XMLHttpRequest();
