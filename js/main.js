@@ -240,7 +240,7 @@ function addContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("AddContactResult").innerHTML = "Error: " + jsonObject;
+                    document.getElementById("AddContactResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
                     document.getElementById("AddContactResult").innerHTML = "Successfully added a new contact";
                     searchContacts();
