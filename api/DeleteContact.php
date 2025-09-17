@@ -3,8 +3,10 @@
 	
 	$inData = getRequestInfo();
 
-	$userID = $inData["UserID"];
-	$ID = $inData["ID"];
+	$userID = (int) $inData["UserID"];
+	$ID = (int) $inData["ID"];
+
+	error_log("DeleteContact Final Check: UserID is " . $userID . " (type: " . gettype($userID) . "), ID is " . $ID . " (type: " . gettype($ID) . ")");
 
 	$stmt = $conn->prepare("SELECT ID FROM Contacts WHERE ID = ? AND UserID = ?");
 	$stmt->bind_param("ii", $ID, $userID); 
