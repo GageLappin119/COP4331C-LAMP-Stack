@@ -22,10 +22,12 @@
 
             <input type="hidden" id="contactIdHidden">
 
-            <input type="text" id="contactFirstName" placeholder="First Name">
-            <input type="text" id="contactLastName" placeholder="Last Name">
-            <input type="text" id="contactPhone" placeholder="Phone Number">
-            <input type="text" id="contactEmail" placeholder="Email Address">
+            <div class="centered-inputs">
+                <input type="text" id="contactFirstName" placeholder="First Name">
+                <input type="text" id="contactLastName" placeholder="Last Name">
+                <input type="text" id="contactPhone" placeholder="Phone Number">
+                <input type="text" id="contactEmail" placeholder="Email Address">
+            </div>
             
             <button id="addEditButton" onclick="addContact()">Add Contact</button>
 
@@ -34,8 +36,7 @@
 
         <div class="list-container">
             <h3>Your Contacts</h3>
-            <div class="search-section">
-
+            <div class="centered-inputs">
                 <input type="text" id="search" placeholder="Search by name..." onkeyup="searchContacts()">
             </div>
 

@@ -239,7 +239,7 @@ function addContact() {
                     document.getElementById("AddContactResult").innerHTML = "An error occured: " + this.status;
                 } else {
                     document.getElementById("AddContactResult").innerHTML = "Successfully added a new contact";
-                    updateContactList();
+                    searchContacts();
                 }
             } else {
                 document.getElementById("AddContactResult").innerHTML = "An error occurred: " + this.status;
@@ -274,7 +274,7 @@ function deleteContact(contactId) {
                     document.getElementById("DeleteContactResult").innerHTML = "An error occured: " + this.status;
                 } else {
                     document.getElementById("DeleteContactResult").innerHTML = "Successfully deleted a contact";
-                    updateContactList();
+                    searchContacts();
                 }
             } else {
                 document.getElementById("DeleteContactResult").innerHTML = "An error occurred: " + this.status;
@@ -326,7 +326,7 @@ function updateContact() {
                     document.getElementById("EditContactResult").innerHTML = "An error occured: " + this.status;
                 } else {
                     document.getElementById("EditContactResult").innerHTML = "Successfully added a new contact";
-                    updateContactList();
+                    searchContacts();
                 }
             } else {
                 document.getElementById("EditContactResult").innerHTML = "An error occurred: " + this.status;
@@ -338,7 +338,7 @@ function updateContact() {
     }
 }
 
-function updateContactList() {
+function searchContacts() {
     let searchInput = document.getElementById("search");
 	let search = "";
 	
@@ -477,43 +477,4 @@ function deleteContactOnClick(contactId) {
         return;
     }
     deleteContact(contactId);
-}
-
-function searchContacts() {
-    let search = document.getElementById("search").value.trim();
-
-
-    let tmp = {
-        userID: userID,
-        search: search
-    };
-
-    let jsonPayload = JSON.stringify(tmp);
-
-    let url = urlBase + '/SearchContacts.' + extension;
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-    try {
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                let jsonObject = JSON.parse(xhr.responseText);
-
-                if (jsonObject.error) {
-                    document.getElementById("SearchContactResult").innerHTML = "An error occured: " + this.status;
-                } else {
-                    document.getElementById("SearchContactResult").innerHTML = "Search successful";
-                    displayContacts(jsonObject.results);
-                    updateContactList();
-                }
-            } else {
-                document.getElementById("SearchContactResult").innerHTML = "An error occurred: " + this.status;
-            }
-        }
-        xhr.send(jsonPayload);
-    } catch (err) {
-        document.getElementById("SearchContactResult").innerHTML = err.message;
-    }
 }
