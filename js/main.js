@@ -243,6 +243,9 @@ function addContact() {
                     document.getElementById("AddContactResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
                     document.getElementById("AddContactResult").innerHTML = "Successfully added a new contact";
+                    
+                    resetContactForm();
+                    
                     searchContacts();
                 }
             } else {
