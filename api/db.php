@@ -41,7 +41,7 @@
         sendResultInfoAsJson($jsonReply);
 	}
 
-	function returnWithSuccess($messsage){
+	function returnWithSuccess($message){
 		$retVal = ['error' => '', 'message' =>$message];
 		sendResultInfoAsJson(json_encode($retVal));
 	}

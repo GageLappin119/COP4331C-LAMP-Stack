@@ -208,6 +208,12 @@ function addContact() {
     let phone = document.getElementById("contactPhone").value.trim();
     let email = document.getElementById("contactEmail").value.trim();
 
+    // check if fields are empty
+    if (!firstName || !lastName || !phone || !email) {
+        document.getElementById("AddContactResult").innerHTML = "Please fill in all fields";
+        return;
+    }
+
     let tmp = {
         UserID: userID,
         FirstName: firstName,
@@ -288,7 +294,14 @@ function updateContact() {
     let lastName = document.getElementById("contactLastName").value.trim();
     let phone = document.getElementById("contactPhone").value.trim();
     let email = document.getElementById("contactEmail").value.trim();
+    
 
+    // check if fields are empty
+    if (!firstName || !lastName || !phone || !email) {
+        document.getElementById("AddContactResult").innerHTML = "Please fill in all fields";
+        return;
+    }
+    
     let tmp = {
         ID: contactID,
         UserID: userID,
