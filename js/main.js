@@ -214,7 +214,7 @@ function addContact() {
 
     // check if fields are empty
     if (!firstName || !lastName || !phone || !email) {
-        document.getElementById("AddContactResult").innerHTML = "Please fill in all fields";
+        document.getElementById("contactFormResult").innerHTML = "Please fill in all fields";
         return;
     }
 
@@ -240,22 +240,22 @@ function addContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("searchResult").innerHTML = "Error: " + jsonObject.error;
+                    document.getElementById("contactFormResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
                     console.log("Added contact:", jsonObject);
-                    document.getElementById("searchResult").innerHTML = "Successfully added a new contact";
+                    document.getElementById("contactFormResult").innerHTML = "Successfully added a new contact";
                     
                     resetContactForm();
                     
                     searchContacts();
                 }
             } else {
-                document.getElementById("searchResult").innerHTML = ": " + this.status;
+                document.getElementById("contactFormResult").innerHTML = ": " + this.status;
             }
         }
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("searchResult").innerHTML = err.message;
+        document.getElementById("contactFormResult").innerHTML = err.message;
     }
 }
 
