@@ -96,7 +96,7 @@ button:hover {
 }
 
 button.secondary {
-  background-color: var(--text-dark);
+  background-color: var(--text-light);
   border: 1px solid var(--hover-blue);
 }
 
