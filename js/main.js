@@ -302,7 +302,6 @@ function updateContact() {
     let phone = document.getElementById("contactPhone").value.trim();
     let email = document.getElementById("contactEmail").value.trim();
     
-
     // check if fields are empty
     if (!firstName || !lastName || !phone || !email) {
         document.getElementById("AddContactResult").innerHTML = "Please fill in all fields";
@@ -431,7 +430,10 @@ function displayContacts(contacts) {
         return;
     }
 
+    // Stores the html for the contacts list
     let allContactsHTML = "";
+    // for loop to iterate over every contact and generate html for it
+    // Includes edit/delete buttons into the contacts themselves
     contacts.forEach(contact => {
         allContactsHTML += `
             <div class="contact-card">
@@ -451,6 +453,7 @@ function displayContacts(contacts) {
     contactListContainer.innerHTML = allContactsHTML;
 }
 
+// Prepares to edit contact by populating contact info and changing headers
 function prepareEdit(contactId) {
     const contactToEdit = contactList.find(contact => contact.ID === contactId);
 
@@ -471,6 +474,9 @@ function prepareEdit(contactId) {
     document.getElementById("addEditButton").setAttribute("onclick", "updateContact()");
 }
 
+// Resets contacts page to default state
+// For use when deleting, editing, adding, etc.. 
+// Useful to ensure that after you edit/delete a contact you aren't stuck with the old contact or limmited to editing only
 function resetContactForm() {
     document.getElementById("contactFirstName").value = "";
     document.getElementById("contactLastName").value = "";

@@ -114,6 +114,8 @@ button.secondary:hover {
   text-decoration: underline;
 }
 
+/* Contact page specific styles */
+
 #contacts-page .container {
     width: 50%;
     max-width: 700px; 
@@ -141,6 +143,7 @@ button.secondary:hover {
     max-width: 300px;
 }
 
+/* sets up 3 contacts per line */
 #contacts-page .contacts-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
