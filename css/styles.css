@@ -113,3 +113,66 @@ button.secondary:hover {
 .link a:hover {
   text-decoration: underline;
 }
+
+#contacts-page .container {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 50px;
+}
+
+#contacts-page .header-bar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+}
+
+#contacts-page .header-bar button {
+    width: 50%;
+    max-width: 250px;
+    margin-top: 15px; 
+}
+
+#contacts-page .main-content {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    align-items: flex-start; 
+    margin-top: 20px;
+}
+
+#contacts-page .form-container {
+    flex: 1; 
+}
+
+#contacts-page .list-container {
+    flex: 2; 
+}
+
+#contacts-page .contacts-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+#contacts-page .contact-card {
+  background: #1abc9c;
+  padding: 12px;
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+}
+
+#contacts-page .contact-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+#contacts-page .contact-actions button {
+  width: 45%;
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 14px;
+}
