@@ -16,9 +16,10 @@ body {
   color: var(--text-light);       /* white */
   display: flex;
   flex-direction: column;      /* stack elements vertically */
-  align-items: center;         /* horizontal centering */
+  align-items: stretch;         /* horizontal centering */
   min-height: 100vh;
   margin: 0;
+  padding: 50px 0;
 }
 
 .container {
@@ -28,6 +29,8 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   width: 350px;
   margin-top: 225px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* default header*/
