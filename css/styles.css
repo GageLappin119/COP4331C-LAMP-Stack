@@ -171,6 +171,11 @@ button.secondary:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: space-between;
+}
+
+#contacts-page .contact-info {
+  overflow-wrap: break-word;
 }
 
 #contacts-page .contact-actions {
