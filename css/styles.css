@@ -155,10 +155,10 @@ button.secondary:hover {
     max-width: 300px;
 }
 
-/* sets up 3 contacts per line */
+/* sets up 2 contacts per line */
 #contacts-page .contacts-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(2, 1fr); 
   gap: 15px;
   margin-top: 20px;
 }
