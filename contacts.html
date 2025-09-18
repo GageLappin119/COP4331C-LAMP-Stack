@@ -1,115 +1,49 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #5496d8; /* light blue */
-  color: #ecf0f1;
-  display: flex;
-  flex-direction: column;      /* stack elements vertically */
-  align-items: center;         /* horizontal centering */
-  min-height: 100vh;
-  margin: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Manager</title>
+    <script src="js/main.js" defer></script>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
 
-.container {
-  background: #34495e; /* blue-gray */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  width: 350px;
-  margin-top: 225px;
-}
+<body onload="checkLogin()">
+  <div class="container"> 
 
-/* default header*/
-h2 {
-  text-align: center;
-  color: #a0c1f3; /* blue highlight */
-}
+    <div class="header-bar">
+        <h2 id="userName">Logged in as...</h2>
+        <button onclick="doLogout()">Logout</button>
+    </div>
 
-/* home page header*/
-h1 {
-  font-size: 60px;        
-  color: darkblue;        
-  text-align: center;     
-  margin-top: 150px;       
-}
-form {
-  margin-top: 15px;
-}
-/* center username and password inputs */
-.centered-inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers children horizontally */
-  gap: 10px;
-  width: 100%;           /* make container full width of .container */
-}
-.centered-inputs input{  
-   width: 325px;          /* fixed width */
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
+    <hr>
 
-.home-buttons {
-  display: flex;
-  justify-content: center; /* center the buttons horizontally */
-  gap: 100px;               /* space between buttons */
-  margin-top: 200px;        /* space below h1 */
-}
+    <h3 id="formTitle">Add a New Contact</h3>
+    <input type="hidden" id="contactIdHidden">
+    <div class="centered-inputs">
+        <input type="text" id="contactFirstName" placeholder="First Name">
+        <input type="text" id="contactLastName" placeholder="Last Name">
+        <input type="text" id="contactPhone" placeholder="Phone Number">
+        <input type="text" id="contactEmail" placeholder="Email Address">
+    </div>
+    <div class="button-wrapper">
+        <button id="addEditButton" onclick="addContact()">Add Contact</button>
+    </div>
+    <p id="contactFormResult" class="result-message"></p>
 
-/* login button */
-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 30px;
-  border: 3px solid #000000;
-  border-radius: 8px;
-  background-color: #db8d34;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
+    <hr>
 
-/* square buttons on home page */
-button.square {
-  width: 200px;     
-  height: 120px;    
-  font-size: 30px;  
-  border-radius: 20px; 
-}
+    <h3>Search Contacts</h3>
+    <div class="centered-inputs">
+        <input type="text" id="search" placeholder="Search by name..." onkeyup="searchContacts()">
+    </div>
+    <p id="searchResult" class="result-message"></p>
 
-button:hover {
-  background-color: #2980b9;
-}
+    <hr>
 
-button.secondary {
-  background-color: #2c3e50;
-  border: 1px solid #3498db;
-}
+    <h3>Contacts List</h3>
+    <div id="contactsList" class="contacts-list">
+    </div>
 
-button.secondary:hover {
-  background-color: #1a252f;
-}
-
-.contacts-list {
-  margin-top: 20px;
-}
-
-.contact-card {
-  background: #1abc9c; /* teal accent */
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 8px;
-  color: black;
-}
-.link a{
-  color:#ad5a34;
-  font-weight: bold;
-  text-decoration: none;
-
-}
-
-.link a:hover {
-  text-decoration: underline;
-}
+  </div>
+</body>
+</html>
