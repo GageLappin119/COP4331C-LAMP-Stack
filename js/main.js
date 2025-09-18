@@ -242,6 +242,7 @@ function addContact() {
                 if (jsonObject.error) {
                     document.getElementById("contactFormResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
+                    console.log("Added contact:", jsonObject);
                     document.getElementById("contactFormResult").innerHTML = "Successfully added a new contact";
                     
                     resetContactForm();
