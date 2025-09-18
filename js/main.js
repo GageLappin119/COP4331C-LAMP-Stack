@@ -218,6 +218,10 @@ function addContact() {
         return;
     }
 
+    if (verifyInputLength(firstName, lastName, phone, email) === false) {
+        return;
+    }
+
     let tmp = {
         UserID: userID,
         FirstName: firstName,
@@ -306,6 +310,10 @@ function updateContact() {
     // check if fields are empty
     if (!firstName || !lastName || !phone || !email) {
         document.getElementById("AddContactResult").innerHTML = "Please fill in all fields";
+        return;
+    }
+
+    if (verifyInputLength(firstName, lastName, phone, email) === false) {
         return;
     }
     
@@ -496,4 +504,24 @@ function deleteContactOnClick(contactId) {
         return;
     }
     deleteContact(contactId);
+}
+
+function verifyInputLength(fName, lName, phone, email) {
+    if (fName.length > 50) {
+        document.getElementById("contactFormResult").innerHTML = "First name cannot exceed 50 characters.";
+        return false;
+    }
+    if (lName.length > 50) {
+        document.getElementById("contactFormResult").innerHTML = "Last name cannot exceed 50 characters.";
+        return false;
+    }
+    if (phone.length > 15) {
+        document.getElementById("contactFormResult").innerHTML = "Phone number cannot exceed 15 characters.";
+        return false;
+    }
+    if (email.length > 100) {
+        document.getElementById("contactFormResult").innerHTML = "Email cannot exceed 100 characters.";
+        return false;
+    }
+    return true;
 }
