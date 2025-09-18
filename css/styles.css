@@ -17,6 +17,16 @@ body {
   margin: 50px auto; 
 }
 
+.alternate-container {
+  background: #34495e; /* blue-gray */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  width: 350px;
+  margin-top: 225px;
+
+}
+
 /* default header*/
 h2 {
   text-align: center;
