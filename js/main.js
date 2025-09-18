@@ -488,7 +488,7 @@ function resetContactForm() {
     document.getElementById("formTitle").innerText = "Add New Contact";
     document.getElementById("addEditButton").innerText = "Add Contact";
     document.getElementById("addEditButton").setAttribute("onclick", "addContact()");
-    document.getElementById("AddContactResult").innerHTML = "";
+    document.getElementById("contactFormResult").innerHTML = "";
 }
 
 function deleteContactOnClick(contactId) {
