@@ -1,7 +1,19 @@
+:root {
+  --page-background: #5496d8;   
+  --panel-background: #34495e; 
+  --text-light: #ecf0f1;     
+  --text-dark: #2c3e50;       
+  --highlight-blue: #a0c1f3;  
+  --accent-orange: #db8d34;   
+  --accent-teal-card: #1abc9c;
+  --accent-brown-link: #ad5a34; 
+  --hover-blue: #3498db;      
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #5496d8; /* light blue */
-  color: #ecf0f1;
+  background-color: var(--page-background); /* light blue */
+  color: var(--text-light);       /* white */
   display: flex;
   flex-direction: column;      /* stack elements vertically */
   align-items: center;         /* horizontal centering */
@@ -21,13 +33,13 @@ body {
 /* default header*/
 h2 {
   text-align: center;
-  color: #a0c1f3; /* blue highlight */
+  color: var(--highlight-blue); /* blue highlight */
 }
 
 /* home page header*/
 h1 {
   font-size: 60px;        
-  color: darkblue;        
+  color: var(--text-dark);        
   text-align: center;     
   margin-top: 150px;       
 }
@@ -65,7 +77,7 @@ button {
   margin-top: 30px;
   border: 3px solid #000000;
   border-radius: 8px;
-  background-color: #db8d34;
+  background-color: var(--accent-orange);
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -80,12 +92,12 @@ button.square {
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: var(--hover-blue);
 }
 
 button.secondary {
-  background-color: #2c3e50;
-  border: 1px solid #3498db;
+  background-color: var(--text-dark);
+  border: 1px solid var(--hover-blue);
 }
 
 button.secondary:hover {
@@ -97,14 +109,14 @@ button.secondary:hover {
 }
 
 .contact-card {
-  background: #1abc9c; /* teal accent */
+  background: var(--accent-teal-card); /* teal accent */
   margin: 5px 0;
   padding: 8px;
   border-radius: 8px;
-  color: black;
+  color: var(--text-dark);
 }
 .link a{
-  color:#ad5a34;
+  color:var(--accent-brown-link);
   font-weight: bold;
   text-decoration: none;
 
@@ -152,10 +164,10 @@ button.secondary:hover {
 }
 
 #contacts-page .contact-card {
-  background: #1abc9c;
+  background: var(--accent-teal-card);
   padding: 12px;
   border-radius: 8px;
-  color: black;
+  color: var(--text-dark);
   display: flex;
   flex-direction: column;
   gap: 10px;
