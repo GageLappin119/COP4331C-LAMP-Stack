@@ -240,21 +240,21 @@ function addContact() {
                 let jsonObject = JSON.parse(xhr.responseText);
 
                 if (jsonObject.error) {
-                    document.getElementById("AddContactResult").innerHTML = "Error: " + jsonObject.error;
+                    document.getElementById("contactFormResult").innerHTML = "Error: " + jsonObject.error;
                 } else {
-                    document.getElementById("AddContactResult").innerHTML = "Successfully added a new contact";
+                    document.getElementById("contactFormResult").innerHTML = "Successfully added a new contact";
                     
                     resetContactForm();
                     
                     searchContacts();
                 }
             } else {
-                document.getElementById("AddContactResult").innerHTML = ": " + this.status;
+                document.getElementById("contactFormResult").innerHTML = ": " + this.status;
             }
         }
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("AddContactResult").innerHTML = err.message;
+        document.getElementById("contactFormResult").innerHTML = err.message;
     }
 }
 
